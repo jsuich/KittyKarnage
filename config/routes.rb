@@ -1,4 +1,13 @@
 KittyKarnage::Application.routes.draw do
+   root :to => 'welcome#index'
+
+   resources :players do
+     post "/actions/:actions", to: "actions#actions", as: "perform_actions"
+   end
+
+   # get ''
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +57,6 @@ KittyKarnage::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
