@@ -1,6 +1,10 @@
 <h1 class="gameTitle">Kitty Karnage</h1>
 
-<div id="gameBoard">
+<div class="mainTile" id="player_one">
+  <%= render 'players/actions_form' %>
+</div>
+
+<div class="mainTile" id="gameBoard">
   <table>
     <tr>
       <td class="tile"></td>
@@ -25,10 +29,11 @@
     </tr>
   </table>
 
-render '_actions_form'
+<div class="mainTile" id="player_two">
+  <%= render 'players/actions_form' %>
+</div>
 
-render '_actions_form'
 
-submit_tag "Execute Commands", class: "execute_commands"
+<%= submit_tag "Execute Commands", class: "execute_commands" %>
 
 </div>

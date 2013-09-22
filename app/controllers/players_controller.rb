@@ -5,6 +5,6 @@ class PlayersController < ApplicationController
     @player_one = 2
     @player_two = 2
 
-    render 'boards/show'
+    render 'board/show'
   end
 end

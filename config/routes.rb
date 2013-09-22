@@ -1,15 +1,16 @@
 KittyKarnage::Application.routes.draw do
-   root :to => board_url
-
-   match '/boards/:id', to: 'boards#show', as: "board"
-
-   resources :players do
-     post "/actions/:actions", to: "actions#actions", as: "perform_actions"
-   end
-
-
-
   # The priority is based upon order of creation:
+   # root :to => 'welcome#index'
+
+
+   root :to => 'board#show'
+   get '/board', to: 'board#show', as: "board"
+
+   post "/actions", to: "actions#actions", as: "perform_actions"
+   
+
+
+
   # first created -> highest priority.
 
   # Sample of regular route:

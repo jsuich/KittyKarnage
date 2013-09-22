@@ -1,17 +1,21 @@
-# @player_one = 1
-# @player_two = 2
+<!-- # @player_one = 1
+# @player_two = 2 -->
 
-@moves = 8
+<%= @moves = 8 %>
 
-<%= form_tag(player_perform_actions()) do %>
+<%= form_tag('/JStakesOverThisPart', method: "post") do %>
 
   <% (@moves - 1).times do |move_num| %>
 
-   <%= label_tag(("move_#{move_num}").to_sym, "move #{move_num}") 
-   select_tag(("move_#{move_num}").to_sym, options_for_select("Walk", "Wait", "Rotate Left", "Rotate Right" ))%>
-   <br>
+    <%= label_tag(("move_#{move_num}").to_sym, "move #{move_num} : ") %>
+   <%= select_tag(("move_#{@moves}").to_sym, options_for_select(["Walk", "Wait", "Rotate Left", "Rotate Right" ], "Walk" ))%>
 
-   <%=label_tag(:attack, "attack:") 
-   select_tag(:attack, options_for_select("FlameThrower", "Cloak and Dagger", "Lightning Strike", "Drunken Headbutt" ))%>
+    <br>
+  <% end %>
 
+   <%=label_tag(("move_#{@moves}").to_sym, "attack : ") %>
+   <%= select_tag(("move_#{@moves}").to_sym, options_for_select(["FlameThrower", "Cloak and Dagger", "Lightning Strike", "Drunken Headbutt"], "FlameThrower" ))%>
 <% end %>
+
+
+
