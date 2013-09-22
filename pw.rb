@@ -1,11 +1,15 @@
 
 class Cat
 
+  attr_accessor :winner, :loser
+
   def initialize(node, orientation, board)
     @node = node
     @coordinates = node.coordinates
     @orientation = orientation
     @board = board
+    @winner = false
+    @loser = false
   end
 
   def rotate(direction)
@@ -47,31 +51,47 @@ class Cat
   def attack
     if @orientation == 1 && @coordinates.last != @board.width-1
       if @node.node_to_right.cat != nil
+         @node.node_to_right.cat.loser = true
          @node.node_to_right.cat = nil
+         self.winner = true
       end
       if @node.node_to_right.node_to_right != nil && @node.node_to_right.node_to_right.cat != nil
+         @node.node_to_right.node_to_right.cat.loser = true
          @node.node_to_right.node_to_right.cat = nil
+         self.winner = true
       end
     elsif @orientation == 2 && @coordinates.first != @board.height-1
       if @node.node_below.cat != nil
+         @node.node_below.cat.loser = true
          @node.node_below.cat = nil
+         self.winner = true
       end
       if @node.node_below.node_below != nil && @node.node_below.node_below.cat != nil
+         @node.node_below.node_below.cat.loser = true
          @node.node_below.node_below.cat = nil
+         self.winner = true
       end
     elsif @orientation == 3 && @coordinates.last != 0
       if @node.node_to_left.cat != nil
+         @node.node_to_left.cat.loser = true
          @node.node_to_left.cat = nil
+         self.winner = true
       end
       if @node.node_to_left.node_to_left != nil && @node.node_to_left.node_to_left.cat != nil
+         @node.node_to_left.node_to_left.cat.loser = true
          @node.node_to_left.node_to_left.cat = nil
+         self.winner = true
       end
     elsif @orientation == 4 && @coordinates.first != 0
       if @node.node_above.cat != nil
+         @node.node_above.cat.loser = true
          @node.node_above.cat = nil
+         self.winner = true
       end
       if @node.node_above.node_above != nil && @node.node_above.node_above.cat != nil
+         @node.node_above.node_above.cat.loster = true
          @node.node_above.node_above.cat = nil
+         self.winner = true
       end
     end
   end
@@ -115,7 +135,7 @@ end
 
 class Board
 
-  attr_reader :board, :width, :height
+  attr_reader :board, :width, :height, :cat1, :cat2
 
   def initialize(width, height)
     @width = width
@@ -135,8 +155,10 @@ class Board
   end
 
   def initialize_cats
-    @board[1][0].cat = Cat.new(@board[1][0], 1, self)
-    @board[1][4].cat = Cat.new(@board[1][4], 1, self)
+    @cat1 = Cat.new(@board[1][0], 1, self)
+    @board[1][0].cat = @cat1
+    @cat2 = Cat.new(@board[1][4], 1, self)
+    @board[1][4].cat = @cat2
   end
 
   def print_board
@@ -153,34 +175,41 @@ class Board
     end
   end
 
+  def victory?
+    if (@cat1.loser == true && @cat2.winner == true) || (@cat1.winner == true && @cat2.loser == true)
+      return true
+    end
+
+    return false
+
 end
 
 
 gameboard = Board.new(5, 3)
 gameboard.print_board
 puts ""
-gameboard.board[1][0].cat.walk
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[1][1].cat.walk
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[1][2].cat.walk
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[1][3].cat.walk
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[1][3].cat.rotate(:right)
-gameboard.board[1][3].cat.walk
+gameboard.cat1.rotate(:right)
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[2][3].cat.rotate(:left)
-gameboard.board[2][3].cat.walk
+gameboard.cat1.rotate(:left)
+gameboard.cat1.walk
 gameboard.print_board
 puts ""
-gameboard.board[2][4].cat.rotate(:left)
-gameboard.board[2][4].cat.attack
+gameboard.cat1.rotate(:left)
+gameboard.cat1.attack
 gameboard.print_board
 puts ""
 
