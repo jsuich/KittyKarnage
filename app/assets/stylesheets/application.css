@@ -12,13 +12,35 @@
  *= require_tree .
  */
 td.tile{
-  background:  url('boardTile.jpg') no-repeat center ;
+  background: url('boardTile.jpg') no-repeat center ;
+
   border: 1px solid gray;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   margin: 2px;
+  text-align: center;
+}
+
+td.tile img {
+  /*float: right;*/
 }
 
 h1 {
   color: red;
+}
+
+td.player_one
+{
+  background: url('P1Right.jpg') no-repeat center ;
+  height: 150px;
+  width: 150px;
+  margin: 2px;
+}
+
+td.player_two
+{
+  background: url('P2Left.jpg') no-repeat center ;
+  height: 150px;
+  width: 150px;
+  margin: 2px;
 }

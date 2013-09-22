@@ -3,7 +3,14 @@
 <head>
   <title>KittyKarnage</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js" %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js" %>
+  
   <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "board" %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
