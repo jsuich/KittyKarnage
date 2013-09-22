@@ -1,39 +1,43 @@
-<h1 class="gameTitle">Kitty Karnage</h1>
+<div id="page">
+  <div class="mainTile" id="kittygun"></div>
 
-<div class="mainTile" id="player_one">
-  <%= render 'players/actions_form', locals: {player_id: 1}%>
-</div>
-
-<div class="mainTile" id="gameBoard">
-  <table>
-    <tr>
-      <td class="tile" id="0"></td>
-      <td class="tile" id="1"></td>
-      <td class="tile" id="2"></td>
-      <td class="tile" id="3"></td>
-      <td class="tile" id="4"></td>
-    </tr>
-    <tr>
-      <td class="tile" id="5"></td>
-      <td class="tile" id="6"></td>
-      <td class="tile" id="7"></td>
-      <td class="tile" id="8"></td>
-      <td class="tile" id="9"></td>
-    </tr>
-    <tr>
-      <td class="tile" id="10"></td>
-      <td class="tile" id="11"></td>
-      <td class="tile" id="12"></td>
-      <td class="tile" id="13"></td>
-      <td class="tile" id="14"></td>
-    </tr>
-  </table>
-
-<div class="mainTile" id="player_two">
-  <%= render 'players/actions_form', :locals => {player_id: 2}%>
-</div>
+  <div class="mainTile" id="gameBoard">
+    <table>
+      <tr>
+        <td class="tile" id="0"></td>
+        <td class="tile" id="1"></td>
+        <td class="tile" id="2"></td>
+        <td class="tile" id="3"></td>
+        <td class="tile" id="4"></td>
+      </tr>
+      <tr>
+        <td class="tile" id="5"></td>
+        <td class="tile" id="6"></td>
+        <td class="tile" id="7"></td>
+        <td class="tile" id="8"></td>
+        <td class="tile" id="9"></td>
+      </tr>
+      <tr>
+        <td class="tile" id="10"></td>
+        <td class="tile" id="11"></td>
+        <td class="tile" id="12"></td>
+        <td class="tile" id="13"></td>
+        <td class="tile" id="14"></td>
+      </tr>
+    </table>
 
 
-<%= submit_tag "Execute Commands", class: "execute_commands" %>
+  <div class="mainTile" id="player_one">
+    <%= render 'players/actions_form', locals: {player_id: 1}%>
+  </div>
 
+  <div class="mainTile" id="player_two">
+    <%= render 'players/actions_form', :locals => {player_id: 2}%>
+  </div>
+
+
+  <%= submit_tag "Execute Commands", class: "execute_commands" %>
+
+  </div>
+  
 </div>

@@ -8,7 +8,7 @@
   <% (@moves).times do |move_num| %>
 
     <%= label_tag(("#{locals[:player_id]}_move_#{move_num + 1}").to_sym, "move #{move_num + 1} : ") %>
-   <%= select_tag(("#{locals[:player_id]}_move_#{move_num + 1}").to_sym, options_for_select(["Walk", "Wait", "Rotate Left", "Rotate Right", "FlameThrower", "Cloak and Dagger", "Lightning Strike", "Drunken Headbutt"], "Walk" ))%>
+   <%= select_tag(("#{locals[:player_id]}_move_#{move_num + 1}").to_sym, options_for_select(["Move", "Rotate Left", "Rotate Right", "Shoot","Fireball"], "Move" ))%>
 
     <br>
   <% end %>

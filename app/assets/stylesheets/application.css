@@ -11,6 +11,17 @@
  *= require_self
  *= require_tree .
  */
+ body {
+  background-color: red;
+ }
+#page {
+  width: 100%;
+  height: 100%;
+}
+ .mainTile {
+  display: inline-block;
+ }
+
 td.tile{
   background: url('boardTile.jpg') no-repeat center ;
 
@@ -19,6 +30,17 @@ td.tile{
   width: 150px;
   margin: 2px;
   text-align: center;
+}
+
+#kittygun {
+  background-image:url('kittytitle.jpg');
+/*  background-color: blue;*/
+  display: inline-block;
+  top: 0px;
+  right:0px;
+  width: 552px;
+  height: 408px;
+  float: left;
 }
 
 td.tile img {
