@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
  */
+td .tile{
+  background: none url('/public/boardTile.jpg') no-repeat center fixed cover;
+  border: 1px solid red;
+  height: 50px;
+  width: 50px;
+}
